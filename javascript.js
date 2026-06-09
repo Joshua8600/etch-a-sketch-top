@@ -1,4 +1,5 @@
 let gridContainer = document.querySelector(".grid-container");
+let gridSquares
 
 function createGrid() {
     for (let i = 1; i <= 256; i++) {
@@ -13,3 +14,11 @@ function createGrid() {
 }
 
 createGrid();
+
+gridSquares = document.querySelectorAll(".grid-square");
+
+gridSquares.forEach((square) => {
+    square.addEventListener("mouseenter", () => {
+        square.classList.add("moved-into");
+    })
+})
