@@ -1,12 +1,12 @@
 let gridContainer = document.querySelector(".grid-container");
 let gridSquares
+let randomSquares
 
 function defaultGrid() {
     for (let i = 1; i <= 256; i++) {
         let square = document.createElement("div");
         gridContainer.appendChild(square);
         square.classList.add("grid-square");
-        gridSquares = document.querySelectorAll(".grid-square");
         sketch();
     }
 }
@@ -14,6 +14,7 @@ function defaultGrid() {
 defaultGrid();
 
 function sketch() {
+    gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
         square.addEventListener("mouseenter", () => {
             square.classList.add("moved-into");
@@ -60,7 +61,6 @@ function createGrid() {
         gridContainer.appendChild(square);
         square.classList.add("grid-square");
     }
-    gridSquares = document.querySelectorAll(".grid-square");
 }
 
 function setGridContainerSize() {
@@ -80,4 +80,21 @@ function changeSquareSize() {
         square.style.width = `${800 / newGridValue}px`
         square.style.height = `${800 / newGridValue}px`
     })
+}
+
+function randomColor() {
+    gridSquares = document.querySelectorAll(".grid-square");
+    gridSquares.forEach((square) => {
+        square.addEventListener("mouseenter", () => {
+            square.classList.toggle("random-color");
+            square.style.backgroundColor = `rgb(${randomRgbValue()}, ${randomRgbValue()}, ${randomRgbValue()})`
+        })
+    })
+    randomSquares = document.querySelectorAll(".random-color");
+}
+
+function randomRgbValue() {
+    let rgb = Math.random() * 255;
+    rgb = Math.floor(rgb);
+    return rgb;
 }
