@@ -5,15 +5,13 @@
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    min-width: 400px;
-    min-height: 400px;
     max-width: 400px;
     max-height: 400px;
 }
 
 .grid-square {
-    min-width: 25px;
-    min-height: 25px;
+    width: 25px;
+    height: 25px;
     border-style: solid;
     border-color: black;
 }
