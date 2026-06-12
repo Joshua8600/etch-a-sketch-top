@@ -28,7 +28,7 @@ let newGridValue;
 newGridButton.addEventListener("click", makeNewGrid);
 
 function newGridValuePrompt() {
-    newGridValueEntry = prompt("Enter Size of Grid", 1);
+    newGridValueEntry = prompt("Enter Size of Grid (Max 100)", 1);
     newGridValueCheck = +newGridValueEntry
     return newGridValueCheck;
 }
@@ -48,6 +48,7 @@ function makeNewGrid() {
 }
 
 function deleteSquares() {
+    gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((node) => {
         node.remove();
     })
@@ -58,16 +59,25 @@ function createGrid() {
         let square = document.createElement("div");
         gridContainer.appendChild(square);
         square.classList.add("grid-square");
-        gridSquares = document.querySelectorAll(".grid-square");
     }
+    gridSquares = document.querySelectorAll(".grid-square");
 }
 
 function setGridContainerSize() {
     if (newGridValue >= 16) {
-        gridContainer.style.Width = "400px";
-        gridContainer.style.Height = "400px";
+        gridContainer.style.width = "400px";
+        gridContainer.style.height = "400px";
+        changeSquareSize();
     } else {
         gridContainer.style.width = `${newGridValue * 25}px`;
         gridContainer.style.height = `${newGridValue * 25}px`;
     }
+}
+
+function changeSquareSize() {
+    gridSquares = document.querySelectorAll(".grid-square");
+    gridSquares.forEach((square) => {
+        square.style.width = `${400 / newGridValue}px`
+        square.style.height = `${400 / newGridValue}px`
+    })
 }
