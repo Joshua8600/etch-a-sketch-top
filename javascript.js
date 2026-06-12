@@ -65,19 +65,19 @@ function createGrid() {
 
 function setGridContainerSize() {
     if (newGridValue >= 16) {
-        gridContainer.style.width = "400px";
-        gridContainer.style.height = "400px";
+        gridContainer.style.width = "800px";
+        gridContainer.style.height = "800px";
         changeSquareSize();
     } else {
-        gridContainer.style.width = `${newGridValue * 25}px`;
-        gridContainer.style.height = `${newGridValue * 25}px`;
+        gridContainer.style.width = `${newGridValue * 50}px`;
+        gridContainer.style.height = `${newGridValue * 50}px`;
     }
 }
 
 function changeSquareSize() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
-        square.style.width = `${400 / newGridValue}px`
-        square.style.height = `${400 / newGridValue}px`
+        square.style.width = `${800 / newGridValue}px`
+        square.style.height = `${800 / newGridValue}px`
     })
 }
