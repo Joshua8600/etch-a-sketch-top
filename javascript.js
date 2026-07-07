@@ -20,8 +20,8 @@ function sketch() {
             square.classList.add("moved-into");
         });
     });
-    randomColor();
-    darkenSquare();
+    //randomColor();
+    //darkenSquare();
 }
 
 
@@ -84,16 +84,34 @@ function changeSquareSize() {
 }
 
 
+// function randomColor() {
+//     gridSquares = document.querySelectorAll(".grid-square");
+//     gridSquares.forEach((square) => {
+//         square.addEventListener("mouseenter", () => {
+//             if (square.classList.contains("random-color")) {
+//             } else {
+//                 square.classList.add("random-color");
+//                 square.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
+//             }
+//         })
+//     })
+//     randomSquares = document.querySelectorAll(".random-color");
+// }
+
+function assignRandomColor(event) {
+    if (event.target.classList.contains("random-color")) {
+        } else {
+            event.target.classList.add("random-color");
+            event.target.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
+        }
+}
+
+
+
 function randomColor() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
-        square.addEventListener("mouseenter", () => {
-            if (square.classList.contains("random-color")) {
-            } else {
-                square.classList.add("random-color");
-                square.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
-            }
-        })
+        square.addEventListener("mouseenter", assignRandomColor)
     })
     randomSquares = document.querySelectorAll(".random-color");
 }
@@ -123,15 +141,39 @@ function darkenSquare() {
 }
 
 
+function removeRandomColor() {
+    gridSquares = document.querySelectorAll(".grid-square");
+    gridSquares.forEach((square) => {
+        square.removeEventListener("mouseenter", assignRandomColor)
+    })
+    randomSquares = document.querySelectorAll(".random-color");
+}
+
+
 defaultGrid();
 
 let newGridButton = document.querySelector(".new-grid-button");
 let newGridValueCheck;
 let newGridValue;
+let randomColorToggle;
+let darkenSquareToggle;
+let randomColorFunction;
 
 newGridButton.addEventListener("click", makeNewGrid);
+
+randomColorToggle = document.querySelector("#color-toggle");
+darkenSquareToggle = document.querySelector("#darken-toggle");
+
+randomColorToggle.addEventListener("change", (e) => {
+    if (e.target.checked == true) {
+        randomColor();
+    } else {
+        removeRandomColor();
+    }
+})
 
 
 //To-Do
 //1. make toggleable buttons for the random color and darkening
-//2. general styling of the page
+//2 Keep color/opacity static after turning off the toggles
+//3. general styling of the page

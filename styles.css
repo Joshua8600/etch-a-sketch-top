@@ -7,6 +7,7 @@
     flex-wrap: wrap;
     width: 800px;
     height: 800px;
+    margin-top: 10px
 }
 
 .grid-square {
@@ -22,5 +23,5 @@
 }
 
 .new-grid-button {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
 }
