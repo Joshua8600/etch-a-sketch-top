@@ -2,16 +2,16 @@ let gridContainer = document.querySelector(".grid-container");
 let gridSquares
 let randomSquares
 
+
 function defaultGrid() {
     for (let i = 1; i <= 256; i++) {
         let square = document.createElement("div");
         gridContainer.appendChild(square);
         square.classList.add("grid-square");
-        sketch();
     }
+    sketch();
 }
 
-defaultGrid();
 
 function sketch() {
     gridSquares = document.querySelectorAll(".grid-square");
@@ -21,20 +21,16 @@ function sketch() {
         });
     });
     randomColor();
-    //darkenSquare();
+    darkenSquare();
 }
 
-let newGridButton = document.querySelector(".new-grid-button");
-let newGridValueCheck;
-let newGridValue;
-
-newGridButton.addEventListener("click", makeNewGrid);
 
 function newGridValuePrompt() {
     newGridValueEntry = prompt("Enter Size of Grid (Max 100)", 16);
     newGridValueCheck = +newGridValueEntry;
     return newGridValueCheck;
 }
+
 
 function makeNewGrid() {
     newGridValuePrompt();
@@ -49,6 +45,7 @@ function makeNewGrid() {
     setGridContainerSize();
 
 }
+
 
 function deleteSquares() {
     gridSquares = document.querySelectorAll(".grid-square");
@@ -65,6 +62,7 @@ function createGrid() {
     }
 }
 
+
 function setGridContainerSize() {
     if (newGridValue >= 16) {
         gridContainer.style.width = "800px";
@@ -76,6 +74,7 @@ function setGridContainerSize() {
     }
 }
 
+
 function changeSquareSize() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
@@ -83,6 +82,7 @@ function changeSquareSize() {
         square.style.height = `${800 / newGridValue}px`;
     })
 }
+
 
 function randomColor() {
     gridSquares = document.querySelectorAll(".grid-square");
@@ -105,5 +105,34 @@ function random256() {
     return rgb;
 }
 
-function randomRgbValue(square) {
+
+function darkenSquare() {
+    gridSquares = document.querySelectorAll(".grid-square");
+    gridSquares.forEach((square) => {
+        square.addEventListener("mouseenter", () => {
+            let opacity = square.style.opacity;
+            opacity = +opacity;
+            if (opacity >= 1) {
+            } else {
+                opacity += 0.1;
+                square.style.opacity = opacity;
+                square.classList.add("darken");
+            }
+        })
+    })
 }
+
+
+defaultGrid();
+
+let newGridButton = document.querySelector(".new-grid-button");
+let newGridValueCheck;
+let newGridValue;
+
+newGridButton.addEventListener("click", makeNewGrid);
+
+
+//To-Do
+//1. make toggleable buttons for the random color and darkening
+//2. general styling of the page
+//3. on grids 16 or less, dont let them wrap on smaller windows (see behavior for 17+)
