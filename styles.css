@@ -5,8 +5,8 @@
 .grid-container {
     display: flex;
     flex-wrap: wrap;
-    max-width: 800px;
-    max-height: 800px;
+    width: 800px;
+    height: 800px;
 }
 
 .grid-square {

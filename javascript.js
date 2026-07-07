@@ -135,4 +135,3 @@ newGridButton.addEventListener("click", makeNewGrid);
 //To-Do
 //1. make toggleable buttons for the random color and darkening
 //2. general styling of the page
-//3. on grids 16 or less, dont let them wrap on smaller windows (see behavior for 17+)
