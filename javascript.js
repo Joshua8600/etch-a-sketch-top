@@ -1,6 +1,7 @@
 let gridContainer = document.querySelector(".grid-container");
 let gridSquares
 let randomSquares
+let darkenedSquares
 
 
 function defaultGrid() {
@@ -111,17 +112,20 @@ function random256() {
 function darkenSquare() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
-        square.addEventListener("mouseenter", () => {
-            let opacity = square.style.opacity;
-            opacity = +opacity;
-            if (opacity >= 1) {
-            } else {
-                opacity += 0.1;
-                square.style.opacity = opacity;
-                square.classList.add("darken");
-            }
-        })
+        square.addEventListener("mouseenter", assignOpacity)
     })
+    darkenedSquares = document.querySelectorAll(".darken");
+}
+
+function assignOpacity(event) {
+    let opacity = event.currentTarget.style.opacity;
+    opacity = +opacity;
+    if (opacity >= 1) {
+    } else {
+        opacity += 0.1;
+        event.currentTarget.style.opacity = opacity;
+        event.currentTarget.classList.add("darken");
+    }
 }
 
 
@@ -131,6 +135,14 @@ function removeRandomColor() {
         square.removeEventListener("mouseenter", assignRandomColor)
     })
     randomSquares = document.querySelectorAll(".random-color");
+}
+
+function stopDarkening() {
+    gridSquares = document.querySelectorAll(".grid-square");
+    gridSquares.forEach((square) => {
+        square.removeEventListener("mouseenter", assignOpacity)
+    })
+    darkenedSquares = document.querySelectorAll(".darken");
 }
 
 
@@ -156,8 +168,15 @@ randomColorToggle.addEventListener("change", (e) => {
     }
 })
 
+darkenSquareToggle.addEventListener("change", (e) => {
+    if (e.currentTarget.checked == true) {
+        darkenSquare();
+    } else {
+        stopDarkening();
+    }
+})
+
 
 //To-Do
-//1. make toggleable buttons for the random color and darkening
-//2 Keep color/opacity static after turning off the toggles (use classes)
-//3. general styling of the page
+//1. Keep color/opacity static after turning off the toggles (use classes)
+//2. general styling of the page
