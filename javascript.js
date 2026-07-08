@@ -20,7 +20,6 @@ function sketch() {
             square.classList.add("moved-into");
         });
     });
-    //randomColor();
     //darkenSquare();
 }
 
@@ -84,36 +83,21 @@ function changeSquareSize() {
 }
 
 
-// function randomColor() {
-//     gridSquares = document.querySelectorAll(".grid-square");
-//     gridSquares.forEach((square) => {
-//         square.addEventListener("mouseenter", () => {
-//             if (square.classList.contains("random-color")) {
-//             } else {
-//                 square.classList.add("random-color");
-//                 square.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
-//             }
-//         })
-//     })
-//     randomSquares = document.querySelectorAll(".random-color");
-// }
-
-function assignRandomColor(event) {
-    if (event.target.classList.contains("random-color")) {
-        } else {
-            event.target.classList.add("random-color");
-            event.target.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
-        }
-}
-
-
-
 function randomColor() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
         square.addEventListener("mouseenter", assignRandomColor)
     })
     randomSquares = document.querySelectorAll(".random-color");
+}
+
+
+function assignRandomColor(event) {
+    if (event.currentTarget.classList.contains("random-color")) {
+        } else {
+            event.currentTarget.classList.add("random-color");
+            event.currentTarget.style.backgroundColor = `rgb(${random256()}, ${random256()}, ${random256()})`;
+        }
 }
 
 
@@ -165,7 +149,7 @@ randomColorToggle = document.querySelector("#color-toggle");
 darkenSquareToggle = document.querySelector("#darken-toggle");
 
 randomColorToggle.addEventListener("change", (e) => {
-    if (e.target.checked == true) {
+    if (e.currentTarget.checked == true) {
         randomColor();
     } else {
         removeRandomColor();
@@ -175,5 +159,5 @@ randomColorToggle.addEventListener("change", (e) => {
 
 //To-Do
 //1. make toggleable buttons for the random color and darkening
-//2 Keep color/opacity static after turning off the toggles
+//2 Keep color/opacity static after turning off the toggles (use classes)
 //3. general styling of the page
