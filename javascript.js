@@ -21,16 +21,14 @@ function sketch() {
             square.classList.add("moved-into");
         });
     });
-    //darkenSquare();
 }
 
-
+//Functions Regarding Grid Generation
 function newGridValuePrompt() {
     newGridValueEntry = prompt("Enter Size of Grid (Max 100)", 16);
     newGridValueCheck = +newGridValueEntry;
     return newGridValueCheck;
 }
-
 
 function makeNewGrid() {
     newGridValuePrompt();
@@ -47,7 +45,6 @@ function makeNewGrid() {
 
 }
 
-
 function deleteSquares() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((node) => {
@@ -63,7 +60,6 @@ function createGrid() {
     }
 }
 
-
 function setGridContainerSize() {
     if (newGridValue >= 16) {
         gridContainer.style.width = "800px";
@@ -75,7 +71,6 @@ function setGridContainerSize() {
     }
 }
 
-
 function changeSquareSize() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
@@ -84,15 +79,17 @@ function changeSquareSize() {
     })
 }
 
-
+//Functions Regarding Color
 function randomColor() {
-    gridSquares = document.querySelectorAll(".grid-square");
-    gridSquares.forEach((square) => {
-        square.addEventListener("mouseenter", assignRandomColor)
-    })
-    randomSquares = document.querySelectorAll(".random-color");
+     gridSquares = document.querySelectorAll(".grid-square");
+     gridSquares.forEach((square) => {
+        if (square.classList.contains("moved-into")) {
+        } else {
+            square.addEventListener("mouseenter", assignRandomColor)
+        }
+     })
+     randomSquares = document.querySelectorAll(".random-color");
 }
-
 
 function assignRandomColor(event) {
     if (event.currentTarget.classList.contains("random-color")) {
@@ -102,14 +99,13 @@ function assignRandomColor(event) {
         }
 }
 
-
 function random256() {
     let rgb = Math.random() * 255;
     rgb = Math.floor(rgb);
     return rgb;
 }
 
-
+//Functions Regarding Opacity
 function darkenSquare() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
@@ -129,7 +125,7 @@ function assignOpacity(event) {
     }
 }
 
-
+//Functions Regarding the Toggles
 function removeRandomColor() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
@@ -145,7 +141,6 @@ function stopDarkening() {
     })
     darkenedSquares = document.querySelectorAll(".darken");
 }
-
 
 function resetCheckboxes() {
     randomColorToggle.checked = false;
@@ -185,5 +180,5 @@ darkenSquareToggle.addEventListener("change", (e) => {
 
 
 //To-Do
-//1. Keep color/opacity static after turning off the toggles (use classes)
+//1. dont darken if alreayd moved into
 //2. general styling of the page
