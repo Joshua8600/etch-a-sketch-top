@@ -43,6 +43,7 @@ function makeNewGrid() {
     createGrid();
     sketch();
     setGridContainerSize();
+    resetCheckboxes();
 
 }
 
@@ -143,6 +144,12 @@ function stopDarkening() {
         square.removeEventListener("mouseenter", assignOpacity)
     })
     darkenedSquares = document.querySelectorAll(".darken");
+}
+
+
+function resetCheckboxes() {
+    randomColorToggle.checked = false;
+    darkenSquareToggle.checked = false;
 }
 
 
