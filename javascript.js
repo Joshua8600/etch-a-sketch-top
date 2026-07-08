@@ -178,7 +178,3 @@ darkenSquareToggle.addEventListener("change", (e) => {
         stopDarkening();
     }
 })
-
-
-//To-Do
-//1. general styling of the page

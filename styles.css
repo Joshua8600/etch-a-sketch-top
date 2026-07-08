@@ -2,19 +2,91 @@
     box-sizing: border-box;
 }
 
+.header-box {
+    display: flex;
+    justify-content: center;
+    width: 800px;
+}
+
+.title {
+    margin: 0px;
+    font-style: italic;
+}
+
+.title>span {
+    text-decoration: underline;
+}
+
+.e1 {
+    color: red;
+}
+
+.t1 {
+    color: orange;
+}
+
+.c1 {
+    color: green;
+}
+
+.h1 {
+    color: blue;
+}
+
+.dash {
+    color: rgb(172, 172, 7);
+    font-weight: bold;
+}
+
+.a {
+    color: purple;
+}
+
+.s {
+    color: pink;
+}
+
+.k {
+    color: purple;
+}
+
+.e2 {
+    color: blue;
+}
+
+.t2 {
+    color: green;
+}
+
+.c2 {
+    color: orange;
+}
+
+.h2 {
+    color: red;
+}
+
+.exclaim {
+    color: pink;
+}
+
 .grid-container {
+    box-sizing: content-box;
     display: flex;
     flex-wrap: wrap;
     width: 800px;
     height: 800px;
-    margin-top: 10px
+    margin-top: 10px;
+    border-style:groove;
+    border-color: rgb(255, 0, 0);
+    border-radius: 5px;
 }
 
 .grid-square {
     width: 50px;
     height: 50px;
     border-style: solid;
-    border-color: black;
+    border-color: rgb(8, 77, 23);
     border-width: 0.25px;
 }
 
@@ -23,5 +95,20 @@
 }
 
 .new-grid-button {
-    margin-bottom: 10px;
+    background-color: rgb(230, 168, 191);
+    color: blue;
+}
+
+.options-section {
+    display: flex;
+    width: 806px;
+    justify-content: space-between;
+    margin-top: 10px;
+    background-color: rgb(100, 3, 109);
+    align-items: center;
+    color:rgb(177, 238, 35);
+    padding: 0px 20px;
+    border-style: dashed;
+    border-color:orange;
+    border-radius: 5px;
 }
