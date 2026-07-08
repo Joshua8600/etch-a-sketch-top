@@ -3,7 +3,7 @@ let gridSquares
 let randomSquares
 let darkenedSquares
 
-
+//Functions Regarding Initial Functionality
 function defaultGrid() {
     for (let i = 1; i <= 256; i++) {
         let square = document.createElement("div");
@@ -12,7 +12,6 @@ function defaultGrid() {
     }
     sketch();
 }
-
 
 function sketch() {
     gridSquares = document.querySelectorAll(".grid-square");
@@ -104,15 +103,6 @@ function random256() {
     rgb = Math.floor(rgb);
     return rgb;
 }
-
-//Functions Regarding Opacity
-// function darkenSquare() {
-//     gridSquares = document.querySelectorAll(".grid-square");
-//     gridSquares.forEach((square) => {
-//         square.addEventListener("mouseenter", assignOpacity)
-//     })
-//     darkenedSquares = document.querySelectorAll(".darken");
-// }
 
 function darkenSquare() {
     gridSquares = document.querySelectorAll(".grid-square");
