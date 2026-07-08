@@ -106,10 +106,21 @@ function random256() {
 }
 
 //Functions Regarding Opacity
+// function darkenSquare() {
+//     gridSquares = document.querySelectorAll(".grid-square");
+//     gridSquares.forEach((square) => {
+//         square.addEventListener("mouseenter", assignOpacity)
+//     })
+//     darkenedSquares = document.querySelectorAll(".darken");
+// }
+
 function darkenSquare() {
     gridSquares = document.querySelectorAll(".grid-square");
     gridSquares.forEach((square) => {
+        if (square.classList.contains("moved-into")) {
+        } else {
         square.addEventListener("mouseenter", assignOpacity)
+        }
     })
     darkenedSquares = document.querySelectorAll(".darken");
 }
@@ -180,5 +191,4 @@ darkenSquareToggle.addEventListener("change", (e) => {
 
 
 //To-Do
-//1. dont darken if alreayd moved into
-//2. general styling of the page
+//1. general styling of the page
