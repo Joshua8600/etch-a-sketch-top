@@ -8,7 +8,7 @@ In the assignment, there was creating the basic functionality as a "main" assign
 
 I completed the main assignment rather early, but then in the process fo trying to do the extra credit parts, that's when I started to get burned out on the whole thing.
 
-In regards to the project as a whole, this was definitely a (great!) challenge, and one that I did enjoy workign through, even despite the (multiple) frustrations and times I got stuck.
+In regards to the project as a whole, this was definitely a (great!) challenge, and one that I did enjoy working through, even despite the (multiple) frustrations and times I got stuck.
 
 I know the next project will be creating a (basic) calculator completely from scrach, and that will definitely be a culminating challenge of everything we would have learned in TOP Curriculum (and more) up to that point.
 
