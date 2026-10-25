@@ -26,6 +26,7 @@ function sketch() {
 function newGridValuePrompt() {
     newGridValueEntry = prompt("Enter Size of Grid (Max 100)", 16);
     newGridValueCheck = +newGridValueEntry;
+    newGridValueCheck = Math.floor(newGridValueCheck);
     return newGridValueCheck;
 }
 
@@ -35,6 +36,8 @@ function makeNewGrid() {
         newGridValue = 100;
     } else if (newGridValueCheck <= 0) {
         newGridValue = 16;
+    } else if (isNaN(newGridValueCheck)) {
+         newGridValue = 16;
     } else {
         newGridValue = newGridValueCheck;
     }
