@@ -33,7 +33,7 @@ function makeNewGrid() {
     newGridValuePrompt();
     if (newGridValueCheck >= 100) {
         newGridValue = 100;
-    } else if (newGridValueCheck == 0) {
+    } else if (newGridValueCheck <= 0) {
         newGridValue = 16;
     } else {
         newGridValue = newGridValueCheck;
